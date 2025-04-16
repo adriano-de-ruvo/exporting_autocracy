@@ -1,7 +1,6 @@
 # Exporting Autocracy
 
 ## Research Question
-# Exporting Autocracy:  
 Chinese Trade Expansion and Democratic Retreat
 ![Panel A: Historical Trends](analysis/output/figure_2.pdf)
 ![Panel B: Recent Correlation](analysis/output/figure_3.pdf)
