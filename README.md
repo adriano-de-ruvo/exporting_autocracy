@@ -1,9 +1,8 @@
 # Exporting Autocracy
 
 ## Research Question
-Chinese Trade Expansion and Democratic Retreat
-![Panel A: Historical Trends](analysis/output/figure_2.pdf)
-![Panel B: Recent Correlation](analysis/output/figure_3.pdf)
+![Panel A: Historical Trends](analysis/output/figure_2.png)
+![Panel B: Recent Correlation](analysis/output/figure_3.png)
 
 Over the past three decades, the world economy has witnessed the irresistible rise of China as a global trade power. Since opening up to foreign trade and implementing free-market reforms, China has moved rapidly from the periphery to the very top of the world trade hierarchy. [^1] China’s spectacular economic advancement and trade openness has not led to substantial changes in the structure of its domestic political regime, which has continued to take on the features of a solid autocracy. [^2]
 
