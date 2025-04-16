@@ -9,14 +9,14 @@ I would like to study whether China’s trade growth has contributed to the decl
 
 ---
 
-[^1]: According to the United Nations Conference on Trade and Development Statistics, China overtook the United States as the world’s largest trading nation in 2013 and has steadily ranked first and second in global shares of exports and imports, respectively, since 2009 ([UNCTAD 2020 Handbook](https://unctad.org)). According to IMF’s Direction of Trade Statistics database, as of 2018, almost two-thirds of world countries trade more with China than the United States ([IMF Statistics Department, 2010](https://data.imf.org)).
+[^1]: According to the United Nations Conference on Trade and Development Statistics, China overtook the United States as the world’s largest trading nation in 2013 and has steadily ranked first and second in global shares of exports and imports, respectively, since 2009 ([UNCTAD 2020 Handbook](https://unctad.org)). According to IMF’s Direction of Trade Statistics database, as of 2018, almost two-thirds of world countries trade more with China than the United States ([IMF Statistics Department, 2010](https://www.elibrary.imf.org/display/book/9781616350017/9781616350017.xml?redirect=true)).
 
 [^2]: The World Bank describes China’s growth as “the fastest sustained expansion by a major economy in history”. Between 1991 and 2020, real annual GDP growth averaged 9.3%. Freedom House’s 2022 country report continues to place China among the lowest ranks in terms of political rights and civil liberties, further stating that “China’s authoritarian regime has become increasingly repressive in recent years” ([Freedom House 2022](https://freedomhouse.org)).
 
 
 ## Project Structure
 
-This repository contains a small preliminary exploration of the research question. Hopefully it can serve as a basis for future research. 
+This repository contains a small preliminary exploration of the above research question. Hopefully it can serve as a basis for future research. 
 
 The project is organized into two main directories:
 
@@ -25,14 +25,14 @@ The project is organized into two main directories:
 This directory contains code for data acquisition, cleaning, and preparation:
 
 - **`code/`**: Scripts for data collection and processing
-  - `build_main.r`: Constructs the datasets used for the analysis by running in sequence all the scripts in the build pipeline.
+  - `build_main.r`: Constructs the datasets used for the analysis by running in sequence all the scripts in the build pipeline
   - `download_trade.r`: Downloads international trade data using the UN Comtrade API. The required API token can be obtained [here](https://uncomtrade.org/docs/api-subscription-keys/). Follow the explanations and once you are signed up, select the `comtrade - v1` product, which is the free API
-  - `download_democracy.r`: Downloads the Episodes of Regime Transformation (ERT) dataset from the [V-Dem Project](https://www.v-dem.net). No token is required. 
+  - `download_democracy.r`: Downloads the Episodes of Regime Transformation (ERT) dataset from the [V-Dem Project](https://www.v-dem.net). No user registration is required
   - `clean_trade.r`: Processes trade data, creating the main measure of trade used in the analysis by averaging four flows: imports and exports reported by each country in a given country-pair
   - `clean_democracy.r`: Aggregates democratization and autocratization episodes by year
   - `merge_trade_democracy.r`: Combines democracy and trade datasets for analysis
 
-- **`input/`**: Empty at the momennt since raw data sources are automatically downloaded
+- **`input/`**: Empty at the momennt since raw data sources are automatically downloaded by scripts in code
 - **`output/`**: Processed datasets ready for analysis
 - **`temp/`**: Temporary files generated during processing
 
@@ -42,9 +42,9 @@ This directory contains the code performing the analysis and visualization outpu
 
 - **`code/`**: Analysis and visualization scripts
   - `analysis_main.r`: Runs all analysis scripts
-  - `figure_1.r`: Creates maps showing countries' trade relationships with China vs. USA
+  - `figure_1.r`: Creates maps showing countries' trade relationships with China vs. USA in 2000 and 2020
   - `figure_2.r`: Generates time trends of democratic and autocratic episodes over time
-  - `figure_3.r`: Generates a plot showing the correlation of interest
+  - `figure_3.r`: Generates a plot showing the main correlation of interest
 
 - **`input/`**: Analysis-ready datasets (copied from build/output)
   - `chn_usa_trade_share.csv`: Comparison of country-level trade with China vs. USA relative to total trade
@@ -52,9 +52,9 @@ This directory contains the code performing the analysis and visualization outpu
   - `trade_democracy_data.csv`: Combined dataset of trade and democratic indicators
 
 - **`output/`**: Generated figures
-  - `figure_1a.pdf` & `figure_1b.pdf`: Maps visualizing global trade relationships
-  - `figure_2.pdf`: Visualization of democracy and autocracy trends over time
-  - `figure_3.pdf`: Plot showing correlation between China's trade share and autocratization episodes
+  - `figure_1a.pdf` & `figure_1b.pdf`
+  - `figure_2.pdf`
+  - `figure_3.pdf`
 
 - **`temp/`**: Empty at the moment
 
