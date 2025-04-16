@@ -26,5 +26,9 @@ figure_3 <- ggplot(trade_democracy_data, aes(x = year)) +
     legend.position = "bottom"                                   
   )
 
-# Save the plot as a PDF file
+# Save the plot as a PDF and PNG file
 ggsave("analysis/output/figure_3.pdf", plot = figure_3)
+ggsave("analysis/output/figure_3.png", plot = figure_3)
+
+
+

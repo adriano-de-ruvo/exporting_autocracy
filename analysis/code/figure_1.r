@@ -75,10 +75,10 @@ figure_1b <- make_trade_plot(2020)
 print(figure_1a)
 print(figure_1b)
 
-# Save figures
+# Save figures as PDF and PNG files
 ggsave("analysis/output/figure_1a.pdf", plot = figure_1a)
 ggsave("analysis/output/figure_1b.pdf", plot = figure_1b)
-
-
+ggsave("analysis/output/figure_1a.png", plot = figure_1a)
+ggsave("analysis/output/figure_1b.png", plot = figure_1b)
 
 

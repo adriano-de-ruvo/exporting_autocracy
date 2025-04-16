@@ -17,8 +17,8 @@ figure_2 <- ggplot(democracy_data, aes(x = year)) +
     axis.title.y = element_text(margin = margin(r = 10))
   )
 
-# Save the plot as a PDF file
+# Save the plot as PDF and PNG file
 ggsave("analysis/output/figure_2.pdf", plot = figure_2)
-
+ggsave("analysis/output/figure_2.png", plot = figure_2)
 
 
