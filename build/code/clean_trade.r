@@ -92,4 +92,3 @@ write.csv(chn_trade_share, "build/temp/chn_trade_share.csv", row.names = FALSE)
 # Clean up environment
 rm(trade_data, chn_usa_trade_share, chn_trade_share)
 
-

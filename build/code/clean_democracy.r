@@ -18,5 +18,3 @@ write.csv(democracy_data, "analysis/input/democracy_data.csv", row.names = FALSE
 
 # Clean up memory
 rm(democracy_data)
-
-

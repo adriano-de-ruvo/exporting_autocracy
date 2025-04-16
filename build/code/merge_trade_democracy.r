@@ -21,3 +21,4 @@ write.csv(trade_democracy_data, "analysis/input/trade_democracy_data.csv", row.n
 
 # Clean up memory
 rm(democracy_data, trade_data, trade_democracy_data)
+
