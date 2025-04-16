@@ -20,15 +20,15 @@ figure_3 <- ggplot(trade_democracy_data, aes(x = year)) +
   labs(x = "Year", color = NULL) +
   theme_minimal() +
   theme(
-    axis.title.y.left = element_text(margin = margin(r = 10)),   
-    axis.title.y.right = element_text(margin = margin(l = 10)),  
-    axis.title.x = element_text(margin = margin(t = 10)),        
-    legend.position = "bottom"                                   
+    axis.title.y.left = element_text(size = 16, margin = margin(r = 10)),
+    axis.title.y.right = element_text(size = 12, margin = margin(l = 10)),
+    axis.title.x = element_text(size = 16, margin = margin(t = 10)),
+    axis.text = element_text(size = 12),
+    legend.text = element_text(size = 14),
+    legend.position = "bottom"
   )
 
 # Save the plot as a PDF and PNG file
 ggsave("analysis/output/figure_3.pdf", plot = figure_3)
 ggsave("analysis/output/figure_3.png", plot = figure_3)
-
-
 

@@ -13,12 +13,12 @@ figure_2 <- ggplot(democracy_data, aes(x = year)) +
   theme_minimal() +
   theme(
     legend.position = "bottom",
-    axis.title.x = element_text(margin = margin(t = 10)),
-    axis.title.y = element_text(margin = margin(r = 10))
+    legend.text = element_text(size = 14),       # Increase legend text size
+    axis.title.x = element_text(size = 16, margin = margin(t = 10)),  # Increase x-axis label size
+    axis.title.y = element_text(size = 16, margin = margin(r = 10)),  # Increase y-axis label size
+    axis.text = element_text(size = 12)          # Increase axis tick labels
   )
 
 # Save the plot as PDF and PNG file
 ggsave("analysis/output/figure_2.pdf", plot = figure_2)
 ggsave("analysis/output/figure_2.png", plot = figure_2)
-
-
