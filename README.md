@@ -1,12 +1,9 @@
 # Exporting Autocracy
 
 ## Research Question
-![Panel A: Historical Trends](analysis/output/figure_2.png)
-![Panel B: Recent Correlation](analysis/output/figure_3.png)
-
 Over the past three decades, the world economy has witnessed the irresistible rise of China as a global trade power. Since opening up to foreign trade and implementing free-market reforms, China has moved rapidly from the periphery to the very top of the world trade hierarchy. [^1] China’s spectacular economic advancement and trade openness has not led to substantial changes in the structure of its domestic political regime, which has continued to take on the features of a solid autocracy. [^2]
 
-During the same period of time, the wave of democratization that had swept the world since the end of the Cold War has lost momentum, leading many countries to slow down their democratization process or even recede into autocratic terrain. While being widespread, this trend is relatively new in recent history. In the past decade, for the first time since World War II, countries experiencing episodes of autocratization have persistently outnumbered those that were democratizing (see Panel A above). As shown in Panel B above, Chinese trade expansion and the erosion of democracy have advanced hand in hand in the past decades, but are these phenomena related? Can China’s rise as a commercial superpower and autocratic outpost explain part of the ongoing democratic recession?
+During the same period of time, the wave of democratization that had swept the world since the end of the Cold War has lost momentum, leading many countries to slow down their democratization process or even recede into autocratic terrain. While being widespread, this trend is relatively new in recent history. In the past decade, for the first time since World War II, countries experiencing episodes of autocratization have persistently outnumbered those that were democratizing. Chinese trade expansion and the erosion of democracy have advanced hand in hand in the past decades, but are these phenomena related? Can China’s rise as a commercial superpower and autocratic outpost explain part of the ongoing democratic recession?
 
 I would like to study whether China’s trade growth has contributed to the decline of democracy across the world. More generally, I aim to explore the possibility that trade, acting both as a shock to different institutional settings and as a source of integration among them, is able to influence their dynamics.
 
@@ -17,78 +14,49 @@ I would like to study whether China’s trade growth has contributed to the decl
 [^2]: The World Bank describes China’s growth as “the fastest sustained expansion by a major economy in history”. Between 1991 and 2020, real annual GDP growth averaged 9.3%. Freedom House’s 2022 country report continues to place China among the lowest ranks in terms of political rights and civil liberties, further stating that “China’s authoritarian regime has become increasingly repressive in recent years” ([Freedom House 2022](https://freedomhouse.org)).
 
 
-
-
-Over the past three decades, the world economy has witnessed the irresistible rise of China as a global trade power. Since opening up to foreign trade and implementing free-market reforms, China has moved rapidly from the periphery to the very top of the world trade hierarchy.1 China’s spectacular economic advancement and trade openness has not led to substantial changes in the structure of its domestic political regime, which has continued to take on the features of a solid autocracy.2
-
-During the same period of time, the wave of democratization that had swept the world since the end of the Cold War, has lost momentum, leading many countries to slow down their democratization process or even recede into autocratic terrain. While being widespread, this trend is relatively new in recent history. In the past decade, for the first time since World War II, countries experiencing episodes of autocratization have persistently outnumbered those that were democratizing (see Panel A above). As shown in Panel B above, Chinese trade expansion and the erosion of democracy have advanced hand in hand in the past decades, but are these phenomena related? Can China’s rise as a commercial superpower and autocratic outpost explain part of the ongoing democratic recession?
-
-I would like to study whether China’s trade growth has contributed to the decline of democracy across the world. More generally, I aim to explore the possibility that trade, acting both as a shock to different institutional settings and as a source of integration among them, is able to influence their dynamics.
-
-
-
-
-
-
-This repository contains a comprehensive research project analyzing the relationship between China's rise as a commercial superpower and trends in global democratization/autocratization episodes.
-
 ## Project Structure
 
-The project is organized into three main directories:
+This repository contains a small preliminary exploration of the research question. Hopefully it can serve as a basis for future research. 
+
+The project is organized into two main directories:
 
 ### 1. build
 
 This directory contains code for data acquisition, cleaning, and preparation:
 
 - **`code/`**: Scripts for data collection and processing
-  - `build_main.r`: Orchestrates the build pipeline by running all scripts in sequence
-  - `download_trade.r`: Downloads international trade data (2000-2023) using API calls
-  - `download_democracy.r`: Retrieves Episodes of Regime Transformation (ERT) dataset
-  - `clean_trade.r`: Processes trade data, creates symmetric trade pairs, and produces China-US trade share metrics
+  - `build_main.r`: Constructs the datasets used for the analysis by running in sequence all the scripts in the build pipeline.
+  - `download_trade.r`: Downloads international trade data using the UN Comtrade API. The required API token can be obtained [here](https://uncomtrade.org/docs/api-subscription-keys/). Follow the explanations and once you are signed up, select the `comtrade - v1` product, which is the free API
+  - `download_democracy.r`: Downloads the Episodes of Regime Transformation (ERT) dataset from the [V-Dem Project](https://www.v-dem.net). No token is required. 
+  - `clean_trade.r`: Processes trade data, creating the main measure of trade used in the analysis by averaging four flows: imports and exports reported by each country in a given country-pair
   - `clean_democracy.r`: Aggregates democratization and autocratization episodes by year
   - `merge_trade_democracy.r`: Combines democracy and trade datasets for analysis
 
-- **`input/`**: Raw input data (populated by download scripts)
+- **`input/`**: Empty at the momennt since raw data sources are automatically downloaded
 - **`output/`**: Processed datasets ready for analysis
 - **`temp/`**: Temporary files generated during processing
 
 ### 2. analysis
 
-This directory contains analytical code and visualization outputs:
+This directory contains the code performing the analysis and visualization outputs:
 
 - **`code/`**: Analysis and visualization scripts
-  - `analysis_main.r`: Orchestrates all analysis scripts
+  - `analysis_main.r`: Runs all analysis scripts
   - `figure_1.r`: Creates maps showing countries' trade relationships with China vs. USA
-  - `figure_2.r`: Generates trend lines of democratic and autocratic episodes over time
-  - `figure_3.r`: Creates a dual-axis plot combining China's trade share and autocratization trends
+  - `figure_2.r`: Generates time trends of democratic and autocratic episodes over time
+  - `figure_3.r`: Generates a plot showing the correlation of interest
 
 - **`input/`**: Analysis-ready datasets (copied from build/output)
-  - `chn_usa_trade_share.csv`: Comparison of country-level trade with China vs. USA
+  - `chn_usa_trade_share.csv`: Comparison of country-level trade with China vs. USA relative to total trade
   - `democracy_data.csv`: Yearly counts of democratization and autocratization episodes
   - `trade_democracy_data.csv`: Combined dataset of trade and democratic indicators
 
 - **`output/`**: Generated figures
   - `figure_1a.pdf` & `figure_1b.pdf`: Maps visualizing global trade relationships
   - `figure_2.pdf`: Visualization of democracy and autocracy trends over time
-  - `figure_3.pdf`: Dual-axis plot showing relationship between China's trade share and autocratization episodes
+  - `figure_3.pdf`: Plot showing correlation between China's trade share and autocratization episodes
 
-- **`temp/`**: Temporary files generated during analysis
-
-### 3. renv
-
-Environment management using the renv package to ensure reproducibility:
-
-- `.gitignore`: Specifies files to be ignored by git
-- activate.R: Script to set up the R environment with required packages
-- `settings.json`: Configuration for the renv environment
-- `library/`: Contains installed R packages specific to this project
-- `staging/`: Temporary staging area for package installations
-
-## Key Files
-
-- README.md: Project overview and documentation
-- renv.lock: Tracks exact package versions for reproducibility
-- LICENSE: Project license
+- **`temp/`**: Empty at the moment
 
 ## Data Flow
 
@@ -97,18 +65,7 @@ Environment management using the renv package to ensure reproducibility:
 3. **Data Analysis**: Processed data is used to generate visualizations and insights
 4. **Output Generation**: Final figures are saved to output
 
-
-
-
-## Dependencies
-
-The project uses the renv package to manage dependencies. Key packages include:
-- `dplyr` and `tidyr` for data manipulation
-- `ggplot2` for visualization
-- `sf`, `rnaturalearth`, and `rnaturalearthdata` for geographical mapping
-- `ERT` for accessing the Episodes of Regime Transformation dataset
-
-To reproduce this analysis, first activate the renv environment by running:
+The project uses the renv package to manage dependencies. To reproduce this analysis, first activate the renv environment by running:
 
 ```r
 source("renv/activate.R")
@@ -119,3 +76,4 @@ Then run the build and analysis pipelines:
 ```r
 source("build/code/build_main.r")
 source("analysis/code/analysis_main.r")
+
