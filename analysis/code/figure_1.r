@@ -42,7 +42,7 @@ make_trade_plot <- function(year) {
     geom_sf(aes(fill = trade_status), color = "white", size = 1) +
     
     scale_fill_manual(
-      values = c("USA" = "blue", "China" = "red", "self" = "grey70"),  
+      values = c("USA" = "#00BFC4", "China" = "#F8766D", "self" = "grey"),  
       breaks = c("China", "USA"),                                       
       labels = c("China", "USA"),                                       
       name = NULL                                                       
